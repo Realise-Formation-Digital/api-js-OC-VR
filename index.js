@@ -49,6 +49,7 @@ let liste = document.getElementById("liste")
 //     console.log(error);
 //   }
 // }
+let nameB = ""
 async function getBeers() {
   try {
     const response = await axios.get('https://api.punkapi.com/v2/beers')
@@ -56,19 +57,19 @@ async function getBeers() {
     // console.log(response.data[0].name)
     //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
     for (const element of response.data) {
-      console.log(element.name)
+      nameB = element.name
       liste.innerHTML += `<li>
   
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  `+element.name+`
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
+  `+nameB+`
 </button>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id=`+nameB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">`+element.name+`</h5>
+        <h5 class="modal-title" id="exampleModalLabel">`+nameB+`</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
