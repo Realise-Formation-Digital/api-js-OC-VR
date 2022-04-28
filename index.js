@@ -51,18 +51,20 @@ let liste = document.getElementById("liste")
 // }
 let nameB = ""
 let imageB = ""
+let taglineB = ""
 async function getBeers() {
   try {
     const response = await axios.get('https://api.punkapi.com/v2/beers')
-    console.log(response)
+    console.log(response.data[0].name)
     // console.log(response.data[0].name)
     //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
     for (const element of response.data) {
       nameB = element.name
-
+      imageB = element.image_url
+      taglineB = element.tagline
       liste.innerHTML += `<li>
   
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
+{ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
   `+nameB+`
 </button>
 
@@ -75,7 +77,8 @@ async function getBeers() {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <img src=`+nameB+`>
+      <p>`+taglineB+`</p>
+      <img src=`+imageB+`>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
