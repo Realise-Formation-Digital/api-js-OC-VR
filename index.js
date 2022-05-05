@@ -1,38 +1,38 @@
 let liste = document.getElementById("liste")
 
-// (async () => {
-//   try {
-//      const response = await axios.get('https://api.punkapi.com/v2/beers/1')
-// //   //     // console.log(response.data[0].image_url)
-// //   //     // console.log(response.data[0].name)
-// insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
-// } catch (error) {
-// console.log(error.response.body);
-// }
-//  })();
+async () => {
+  try {
+     const response = await axios.get('https://api.punkapi.com/v2/beers/1')
+//   //     // console.log(response.data[0].image_url)
+//   //     // console.log(response.data[0].name)
+insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
+} catch (error) {
+console.log(error.response.body);
+}
+ };
 
-//   (async () => {
-//       try {
-//         const response = await axios.get('https://api.punkapi.com/v2/beers')
-//       //   console.log(response)
-//         // console.log(response.data[0].name)
-//         //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
-//         for (const element of response) {
-//           console.log(data[element].name)}
+  (async () => {
+      try {
+        const response = await axios.get('https://api.punkapi.com/v2/beers')
+      //   console.log(response)
+        // console.log(response.data[0].name)
+        //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
+        for (const element of response) {
+          console.log(data[element].name)}
 
-//       } catch (error) {
-//           console.log(error.response.body);
-//       }
-//     })();
+      } catch (error) {
+          console.log(error.response.body);
+      }
+    });
 
-//   function insertText(nameBeer, textBeer, imageBeer){
-//       document.getElementById("name-beer").innerText = nameBeer
-//       document.getElementById("beer-description").innerText = textBeer
-//       document.getElementById("image-beer").innerHTML = imageEl
-//       imageEl.innerHTML =   `<img src=${imageBeer}>
-//       `
+  function insertText(nameBeer, textBeer, imageBeer){
+      document.getElementById("name-beer").innerText = nameBeer
+      document.getElementById("beer-description").innerText = textBeer
+      document.getElementById("image-beer").innerHTML = imageEl
+      imageEl.innerHTML =   `<img src=${imageBeer}>
+      `
 
-//   }
+  }
 
 // async function getBeers() {
 //   try {
@@ -64,25 +64,28 @@ async function getBeers() {
       taglineB = element.tagline
       liste.innerHTML += `<li>
   
-{ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
+ <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
   `+nameB+`
 </button>
 
-
-<div class="modal fade" id=`+nameB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+<!-- Modal -->
+<div class="modal fade img-background" id=`+nameB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content backgroundBlack">
+      <div class="modal-header ">
         <h5 class="modal-title" id="exampleModalLabel">`+nameB+`</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body position-relative ">
       <p>`+taglineB+`</p>
-      <img src=`+imageB+`>
+        <div class="position-absolute top-40 start-50">
+          <img class="img-fluid monimage"src=`+imageB+`/>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
