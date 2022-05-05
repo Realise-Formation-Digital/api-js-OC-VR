@@ -62,7 +62,10 @@ async function getBeers() {
       nameB = element.name
       imageB = element.image_url
       taglineB = element.tagline
-      liste.innerHTML += `<li>
+      liste.innerHTML += `
+     
+    
+      <div  class="g-col-3 p-2 m-2">
   
  <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=#`+nameB+`>
@@ -70,9 +73,9 @@ async function getBeers() {
 </button>
 
 <!-- Modal -->
-<div class="modal fade img-background" id=`+nameB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade img-background list-modal" id=`+nameB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
-    <div class="modal-content backgroundBlack">
+    <div class="modal-content backgroundGrey">
       <div class="modal-header ">
         <h5 class="modal-title" id="exampleModalLabel">`+nameB+`</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -90,7 +93,9 @@ async function getBeers() {
     </div>
   </div>
 </div>
-      </li>`
+      </div>
+   
+    `
     }
 
   } catch (error) {

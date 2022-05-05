@@ -1,3 +1,7 @@
+*{
+    font-weight: bolder;
+    
+}
 .monimage{
     max-height: 350px;
     object-fit: cover;
@@ -8,20 +12,17 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.img-background-beer-geneva{
-    background-image: url("./images/beerGeneva.png");
-    object-fit: auto;
-    background-repeat: no-repeat;
-    background-size: auto;
-}
-.backgroundBlack{
+
+.backgroundGrey{
     background-color: rgb(105, 103, 103);
 }
-.size-carousel{
-    max-height: 400px;
-}
+
 .taille-img{
     object-fit: cover;
     background-repeat: no-repeat;
     background-size: cover;
 }
+.list-modal{
+    font-size: 24px;
+}
+
