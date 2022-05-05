@@ -52,6 +52,9 @@ console.log(error.response.body);
 let nameB = ""
 let imageB = ""
 let taglineB = ""
+let valueB = ""
+let unitB = ""
+let descriptionB = ""
 async function getBeers() {
   try {
     const response = await axios.get('https://api.punkapi.com/v2/beers')
@@ -60,11 +63,13 @@ async function getBeers() {
     //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
     for (const element of response.data) {
       nameB = element.name
+      console.log(element)
+      valueB = element.volume.value
+      unitB = element.volume.unit
       imageB = element.image_url
       taglineB = element.tagline
+      descriptionB = element.description
       liste.innerHTML += `
-     
-    
       <div  class="g-col-3 p-2 m-2">
   
  <!-- Button trigger modal -->
@@ -82,6 +87,8 @@ async function getBeers() {
       </div>
       <div class="modal-body position-relative ">
       <p>`+taglineB+`</p>
+      <p>`+descriptionB+`</p>
+      <p>`+valueB+` `+unitB+` </p>
         <div class="position-absolute top-40 start-50">
           <img class="img-fluid monimage"src=`+imageB+`/>
         </div>
