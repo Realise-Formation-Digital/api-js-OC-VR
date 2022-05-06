@@ -89,7 +89,7 @@ async function getBeers() {
       <p>`+taglineB+`</p>
       <p>`+descriptionB+`</p>
       <p>`+valueB+` `+unitB+` </p>
-        <div class="position-absolute top-40 start-50">
+        <div class="position-absolute top-100 start-50">
           <img class="img-fluid monimage"src=`+imageB+`/>
         </div>
       </div>
