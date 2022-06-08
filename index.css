@@ -25,4 +25,13 @@
 .list-modal{
     font-size: 24px;
 }
+.descriptionB{
+    color: black;
+    font-style: italic;
+}
+.taglineB{
+    
+    color: gold;
+    font-weight: bolder;
+}
 

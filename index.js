@@ -2,7 +2,7 @@ let liste = document.getElementById("liste")
 
 async () => {
   try {
-     const response = await axios.get('https://api.punkapi.com/v2/beers/1')
+     const response = await axios.get('http://localhost:3001/users/1')
 //   //     // console.log(response.data[0].image_url)
 //   //     // console.log(response.data[0].name)
 insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
@@ -13,7 +13,7 @@ console.log(error.response.body);
 
   (async () => {
       try {
-        const response = await axios.get('https://api.punkapi.com/v2/beers')
+        const response = await axios.get('http://localhost:3001/users')
       //   console.log(response)
         // console.log(response.data[0].name)
         //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
@@ -57,11 +57,11 @@ let unitB = ""
 let descriptionB = ""
 async function getBeers() {
   try {
-    const response = await axios.get('https://api.punkapi.com/v2/beers')
-    console.log(response.data[0].name)
+    const response = await axios.get('http://localhost:3001/users')
+    console.log(typeof response)
     // console.log(response.data[0].name)
     //   insertText(response.data[0].name, response.data[0].tagline, response.data[0].image_url)
-    for (const element of response.data) {
+    for (const element of response.data.data) {
       nameB = element.name
       console.log(element)
       valueB = element.volume.value
@@ -86,8 +86,8 @@ async function getBeers() {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body position-relative ">
-      <p>`+taglineB+`</p>
-      <p>`+descriptionB+`</p>
+      <p class="taglineB">`+taglineB+`</p>
+      <p class="descriptionB">`+descriptionB+`</p>
       <p>`+valueB+` `+unitB+` </p>
         <div class="position-absolute top-100 start-50">
           <img class="img-fluid monimage"src=`+imageB+`/>
